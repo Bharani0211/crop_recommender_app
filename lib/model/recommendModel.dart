@@ -79,34 +79,16 @@ class DecisionTree {
     required this.accuracy,
   });
 
-  Crop? crop;
+  String? crop;
   String? accuracy;
 
   factory DecisionTree.fromJson(Map<String, dynamic> json) => DecisionTree(
-        crop: cropValues.map![json["crop"]],
+        crop: json["crop"],
         accuracy: json["accuracy"],
       );
 
   Map<String, dynamic> toJson() => {
-        "crop": cropValues.reverse![crop],
+        "crop": crop,
         "accuracy": accuracy,
       };
-}
-
-enum Crop { RICE }
-
-final cropValues = EnumValues({"rice": Crop.RICE});
-
-class EnumValues<T> {
-  Map<String, T>? map;
-  Map<T, String>? reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String>? get reverse {
-    if (reverseMap == null) {
-      reverseMap = map!.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
 }

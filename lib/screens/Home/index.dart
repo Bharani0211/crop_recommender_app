@@ -88,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Text(
                               "$email",
                               style: TextStyle(
+                                fontSize: 10,
                                 color: Colors.white70,
                               ),
                             ),

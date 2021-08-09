@@ -57,7 +57,6 @@ class _MyRecommendationState extends State<MyRecommendation> {
       return hour.toString() + time.substring(2) + " PM";
     }
     if (hour >= 1 && hour <= 11) {
-      hour = hour - 12;
       return hour.toString() + time.substring(2) + " AM";
     }
     return d;
@@ -164,7 +163,24 @@ class _MyRecommendationState extends State<MyRecommendation> {
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Center(
-                child: CircularProgressIndicator(),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "NO RECOMMENDATION DONE YET",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                      ),
+                    ),
+                    Text(
+                      "Upload your csv file and view results here",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
               ),
             );
           },
